@@ -3,8 +3,8 @@ class Raindrops {
   PVector vel;
   int d;
   Raindrops() {
-    loc = new PVector(random(width), random(height));
-    vel = new PVector(0, random(0, 3));
+    loc = new PVector(random(width), 0);
+    vel = new PVector(0, random(0.5, 3));
     d = 10;
   }
   void display() {
