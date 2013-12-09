@@ -1,10 +1,18 @@
 class Catcher {
-  int x, y;
+  int d;
+  PVector loc;
   Catcher() {
-    x=mouseX;
+    loc=new PVector(mouseX, height-40);
+    d=40;
   }
-  void display(y){
-    ellipse(x,y,d);   
+  void display() {
+    ellipse(mouseX, loc.y, d, d);
+  }
+  void catchdrop(Raindrops r) {
+    if (loc.dist(r.loc) < d/2+r.d/2) {
+      r.loc.set(-width, height*20);
+      println("touch");
+    }
   }
 }
 
