@@ -1,7 +1,8 @@
 int oldtime;
 int index;
-Raindrops[] drops= new Raindrops[300];
+Raindrops[] drops = new Raindrops[300];
 Catcher c;
+
 void setup() {
   size(500, 500);
   for (int i=0;i<drops.length;i++) {
@@ -17,11 +18,10 @@ void draw() {
     drops[i].display();
     drops[i].fall();
   }
-  for(int i=0; i<drops.length;i++){
+  for (int i=0; i<drops.length; i++) {
     c.catchdrop(drops[i]);
   } 
-
-  if (millis()-oldtime>1000) {
+  if (millis()-oldtime>500) {
     if (index<drops.length) {
       index++;
     }
