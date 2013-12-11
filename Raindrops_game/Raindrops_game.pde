@@ -4,12 +4,17 @@ int score;
 int timeint;
 Raindrops[] drops;
 Catcher c;
+PImage img;
+float size;
 
 void setup() {
   size(displayWidth, displayHeight); //sets the display size
   drops = new Raindrops[200]; //assigns a value for the size of the drops array
   c= new Catcher(); //initialzes the variable c
   timeint=500;
+  img=loadImage("Brian.png");
+  imageMode(CENTER);
+  size=0;
   for (int i=0;i<drops.length;i++) {
     drops[i]= new Raindrops();
   } //initilizes each item in the drops array
@@ -37,12 +42,25 @@ void draw() {
     fill(255); //makes the text white
     textSize(50); //sets the text size
     text(score, width/2, 50); //makes the score appear at the top ofthe screen
-    //  if (millis() > timeint*drops.length + drops.vel.y*height) {
-    //    text("CONGRATULATIONS! You Scored "+score+" points", width/2, height/2);
-    //  }
   }
-  else if(millis()>30000){
-   text("Congratulations!\nYou scored " + score + " points!", width/2,height/2); 
+  else if (millis()>30000) {
+    if (score>=40) { //makes these things display if the player scored 40 points or more
+      image(img, width/2, height/2, size, size); //display the image "Brian"
+      size++; //makes "Brian" get bigger
+      if (size>=width) {
+        size=width;
+      } //makes Brian stop growing once he has filled up the width of the screen
+      text("Congratulations!\nYou scored " + score + " points!", width/2, height/2);
+    } //displays "congratulations! you scored ___ points!" in the center of the screen
+
+    else { //makes this happen i the score is less than 40 points
+      if (score==1) {
+        text("Good try!\nYou scored " + score + " point!", width/2, height/2);
+      }
+      else {
+        text("Good try!\nYou scored " + score + " points!", width/2, height/2);
+      } //displays "good try! You scored ___ points!"
+    }
   }
 }
 
