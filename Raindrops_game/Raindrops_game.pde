@@ -11,10 +11,10 @@ void setup() {
   size(displayWidth, displayHeight); //sets the display size
   drops = new Raindrops[200]; //assigns a value for the size of the drops array
   c= new Catcher(); //initialzes the variable c
-  timeint=500;
-  img=loadImage("Brian.png");
-  imageMode(CENTER);
-  size=0;
+  timeint=500; //initializes timeint
+  img=loadImage("Brian.png"); //initalizes img
+  imageMode(CENTER); //makes the image values line up with the center of the image
+  size=0; //sets the starting size to 0
   for (int i=0;i<drops.length;i++) {
     drops[i]= new Raindrops();
   } //initilizes each item in the drops array
@@ -28,9 +28,9 @@ void draw() {
     if (millis()-oldtime>timeint) {
       if (index<drops.length) {
         index++;
-      }
+      } //makes the index increase by 1 every time the time interval is reached as long as it is less than the length of the drops array
       oldtime=millis();
-    } //every time the current time minus the previous time equals "timeint", the time interval, currently 500 miliseconds, the index will increase by one as long as it is less than the length of the drops array
+    } //resents the time change to 0
     for (int i=0;i<index;i++) {
       drops[i].display(); //makes the raindrops display at the top of the screen
       drops[i].fall(); //makes the raindrops fall down the screen
