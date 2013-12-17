@@ -10,6 +10,7 @@ boolean b;
 PVector loc;
 float d;
 Rainbow r;
+//int curtime;
 
 void setup() {
   size(displayWidth, displayHeight); //sets the display size
@@ -25,8 +26,8 @@ void setup() {
   b=false;
   loc=new PVector(width/2, height/2);
   d=200;
-
   r = new Rainbow();
+ // curtime=millis();
 }
 
 void draw() {
@@ -53,9 +54,12 @@ void draw() {
       fill(255); //makes the text white
       textSize(50); //sets the text size
       text(score, width/2, 50); //makes the score appear at the top ofthe screen
+      loc = new PVector(-width, height);
     }
     else if (millis()>30000) {
-
+      colorMode(RGB, 255, 255, 255);
+      fill(255, 255, 255);
+      textSize(50);
       if (score>=40) { //makes these things display if the player scored 40 points or more
         image(img, width/2, height/2, size, size); //display the image "Brian"
         size++; //makes "Brian" get bigger
@@ -67,34 +71,44 @@ void draw() {
 
       else { //makes this happen if the score is less than 40 points
         if (score==1) {
+          // fill(255, 255, 255);
           text("Good try!\nYou scored " + score + " point!", width/2, height/2);
         }
         else {
+          //  fill(255, 255, 255);
           text("Good try!\nYou scored " + score + " points!", width/2, height/2);
         } //displays "good try! You scored ___ points!"
       }
-      loc = new PVector(300, 300);
-      d=50;
+      loc = new PVector(300, 250);
+      d=150;
       fill(255, 0, 0);
       ellipse(loc.x, loc.y, d, d);
+      textSize(20);
+      fill(255, 255, 255);
+      text("Return to\nStart Screen", 300, 240);
+      //curtime=0;
     }
   }
-  else {
+  else { //happens if b is false
     r.display(1);
     stroke(0);
     strokeWeight(2);
-    colorMode(RGB);
+    colorMode(RGB, 255, 255, 255);
     fill(20, 198, 27);
+    loc = new PVector(width/2, height/2+100);
+    d=200;
     ellipse(loc.x, loc.y, d, d);
     textAlign(CENTER);
     fill(0);
     textSize(40);
-    text("Start", width/2, height/2+10);
+    text("Start", width/2, height/2+110);
+    textSize(60);
+    text("Catch the raindops as they fall.\nTry to score 40 points!", width/2, 250);
   }
 }
 void mousePressed() {
   if (dist(mouseX, mouseY, loc.x, loc.y)<d/2) {
-    b=!b;
+    b=!b; //switches the boolean on or off when the mouse is clicked inside the circle
   }
 }
 
