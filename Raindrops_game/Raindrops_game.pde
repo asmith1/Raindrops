@@ -102,7 +102,7 @@ void draw() {
       colorMode(RGB, 255, 255, 255);
       fill(255, 255, 255);
       textSize(50);
-      if (score>=35) { //makes these things display if the player scored 40 points or more
+      if (score>=50) { //makes these things display if the player scored 40 points or more
         image(img, width/2, height/2, size, size); //display the image "Brian"
         size++; //makes "Brian" get bigger
         if (size>=width) {
@@ -111,7 +111,7 @@ void draw() {
         text("Congratulations!\nYou scored " + score + " points!", width/2, height/2);
       } //displays "congratulations! you scored ___ points!" in the center of the screen
 
-      else { //makes this happen if the score is less than 40 points
+      else { //makes this happen if the score is less than 50 points
         if (score==1) {
           // fill(255, 255, 255);
           text("Good try!\nYou scored " + score + " point!", width/2, height/2);
@@ -145,7 +145,7 @@ void draw() {
     textSize(40);
     text("Start", width/2, height/2+110);
     textSize(60);
-    text("Catch the raindops as they fall.\nTry to score 35 points!", width/2, 250);
+    text("Catch the raindops as they fall.\nTry to score 50 points!", width/2, 250);
   }
 }
 void mousePressed() {

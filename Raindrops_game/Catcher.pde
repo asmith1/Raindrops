@@ -10,7 +10,7 @@ class Catcher { //creates the class "Catcher"
     d = 80; //initializes d
     colorMode(HSB, 360, 100, 100); 
     c= color(random(360), 100, 100); //initializes c
-    bucket = loadImage("Bucket2.jpg");
+    bucket = loadImage("Bucket.jpg");
   }
   void display() { //creates the method display
   imageMode(CENTER);

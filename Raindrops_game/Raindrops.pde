@@ -4,7 +4,7 @@ class Raindrops {
   PVector vel; //declares vel
   int d; //declares d
   Raindrops() {
-    drops = loadImage("Raindrop2.jpg");
+    drops = loadImage("Raindrop.jpg");
     loc = new PVector(random(width), 0); //initializes loc
     vel = new PVector(0, 3); //initializes vel
     d = 40; //initializes d
