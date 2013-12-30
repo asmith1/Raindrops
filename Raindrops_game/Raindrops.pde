@@ -1,16 +1,18 @@
 class Raindrops {
+  PImage drops;
   PVector loc; //declares loc
   PVector vel; //declares vel
   int d; //declares d
   Raindrops() {
+    drops = loadImage("Raindrop2.jpg");
     loc = new PVector(random(width), 0); //initializes loc
     vel = new PVector(0, 3); //initializes vel
-    d = 15; //initializes d
+    d = 40; //initializes d
   }
   void display() { //creates the method display
-    colorMode(RGB,255,255,255);
-    fill(random(23, 30), random(190, 220), random(245, 255)); //fill the raindrops with a random shade of light blue
-    ellipse(loc.x, loc.y, d, d); //creates circles that appear at the top of the screen
+    imageMode(CENTER);
+    noTint();
+    image(drops, loc.x, loc.y,d,d);
   }
   void fall() { //creats the method fall
     loc.add(vel); //makes the circles move down the screen
