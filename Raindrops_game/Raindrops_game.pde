@@ -7,9 +7,10 @@ int curtimeS;
 int timeChangeS;
 int indexS;
 int score;
-int gametime;
-int oldgametime;
-int gametimechange;
+int starttime;
+//int gametime;
+//int oldgametime;
+//int gametimechange;
 //int timeint;
 Raindrops[] drops;
 Sunshine[] suns;
@@ -48,19 +49,21 @@ void setup() {
   d=200;
   r = new Rainbow();
   // curtime=millis();
-gametimechange=60000;
+//gametimechange=60000;
 
   b=false;
+  starttime=millis();
 }
 
 void draw() {
   if (b==true) {
-    curtimeR=millis();
-    curtimeS=millis();
-    gametime=millis()-oldgametime;
+    starttime=0;
+    curtimeR=millis()-starttime;
+    curtimeS=millis()-starttime;
+   // gametime=millis()-oldgametime;
     background(0); //sets the background of the display to black
     //oldtime=millis();
-    if (gametime-oldgametime<gametimechange) {
+    if (millis()-starttime<60000) {
       c.display(); //makes the method, "display," for the catcher run, meaning the catcher c will display
       c.move(); //makes the method, "move," for the catcher, run, meaning the catcher will move when my mouse moves (and not just stay in the corner the whole time like it previously did)
       if (curtimeR-oldtimeR>timeChangeR) {
@@ -151,7 +154,8 @@ void draw() {
 void mousePressed() {
   if (dist(mouseX, mouseY, loc.x, loc.y)<d/2) {
     b=!b; //switches the boolean on or off when the mouse is clicked inside the circle
-    gametime=oldgametime;
+    //gametime=oldgametime;
+    starttime=millis();
   }
 }
 
