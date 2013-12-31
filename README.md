@@ -1,7 +1,7 @@
 Raindrops Game
 ==============
 
-When the program is openned, a start screen is displayed.
+When the program is opened, a start screen is displayed.
 
 When the start button is clicked, you go to the game, where the catcher appears and raindrops and suns fall. The raindrops increase your score by a point and the suns decrease your score by three points. The raindrops fall slightly slower than the suns, but a raindrop falls once every 0.5 seconds whereas a sun falls once every 1.5 seconds.
 
