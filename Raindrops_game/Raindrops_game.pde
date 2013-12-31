@@ -148,7 +148,8 @@ void draw() {
     textSize(40);
     text("Start", width/2, height/2+110);
     textSize(60);
-    text("Catch the raindops as they fall.\nTry to score 50 points!", width/2, 250);
+    text("Catch the raindops to fill up the bucket.\n Avoid the sunshine, which dries up the rain.", width/2, 250);
+    text("Score 50 points to win!",width/2,height/2+300);
   }
 }
 void mousePressed() {
